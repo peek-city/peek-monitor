@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
 import CheckCard from "@/components/CheckCard";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { PeekLogo } from "@/components/PeekLogo";
 
 interface Check {
   name: string;
@@ -44,7 +44,7 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <PeekLogo size={28} />
+              <Image src="/peek-logo.png" alt="Peek" width={28} height={28} />
               <span className="text-lg font-bold text-foreground">Peek Monitor</span>
             </div>
             {lastUpdated && (
