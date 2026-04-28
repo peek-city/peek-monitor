@@ -10,7 +10,10 @@ function LoginContent() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="bg-card border border-border rounded-lg p-8 max-w-sm w-full text-center">
-        <img src="/LogoPeekCompleto.png" alt="Peek" className="h-10 mx-auto mb-2" />
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <img src="/peek-logo.png" alt="Peek" className="h-8" />
+          <span className="text-2xl font-bold text-foreground">Peek Monitor</span>
+        </div>
         <p className="text-muted-foreground mb-8 text-sm">
           Dashboard interno de monitoreo
         </p>
