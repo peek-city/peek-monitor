@@ -58,7 +58,7 @@ export default function PingHistory({
 }: PingHistoryProps) {
   if (pings.length === 0) {
     return (
-      <div className="text-gray-400 py-4 text-center text-sm">
+      <div className="text-muted-foreground py-4 text-center text-sm">
         Sin pings registrados.
       </div>
     );
@@ -66,10 +66,10 @@ export default function PingHistory({
 
   return (
     <div>
-      <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
+      <div className="bg-card border border-border rounded-lg overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-800 text-gray-400 text-xs">
+            <tr className="border-b border-border text-muted-foreground text-xs">
               <th className="text-left py-3 px-4 font-medium w-16">#</th>
               <th className="text-left py-3 px-4 font-medium w-40">
                 Timestamp
@@ -88,12 +88,12 @@ export default function PingHistory({
               return (
                 <tr
                   key={ping.n}
-                  className={`border-b border-gray-800/50 ${isFail ? "bg-red-950/20" : ""}`}
+                  className={`border-b border-border/50 ${isFail ? "bg-red-950/20" : ""}`}
                 >
-                  <td className="py-3 px-4 text-gray-500 font-mono text-xs">
+                  <td className="py-3 px-4 text-muted-foreground font-mono text-xs">
                     {ping.n}
                   </td>
-                  <td className="py-3 px-4 text-gray-300 text-xs">
+                  <td className="py-3 px-4 text-card-foreground text-xs">
                     {formatDate(ping.date)}
                   </td>
                   <td className="py-3 px-4">
@@ -107,7 +107,7 @@ export default function PingHistory({
                     {ping.body ? (
                       <MetricsDisplay body={ping.body} />
                     ) : (
-                      <span className="text-gray-500 text-xs">—</span>
+                      <span className="text-muted-foreground text-xs">—</span>
                     )}
                   </td>
                 </tr>
@@ -123,17 +123,17 @@ export default function PingHistory({
           <button
             onClick={() => onPageChange(page - 1)}
             disabled={page <= 1}
-            className="text-sm text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="text-sm text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             ← Anterior
           </button>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-muted-foreground">
             Página {page} de {totalPages}
           </span>
           <button
             onClick={() => onPageChange(page + 1)}
             disabled={page >= totalPages}
-            className="text-sm text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="text-sm text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             Siguiente →
           </button>

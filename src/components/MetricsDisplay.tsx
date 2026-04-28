@@ -10,8 +10,8 @@ type ParsedBody =
 function MetricRow({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="flex justify-between text-xs">
-      <span className="text-gray-400">{label}</span>
-      <span className="text-gray-200 font-mono">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="text-foreground font-mono">{value}</span>
     </div>
   );
 }
@@ -54,7 +54,7 @@ export default function MetricsDisplay({ body }: { body: ParsedBody }) {
         <MetricRow label="Wake hours" value={body.wakeHours || "—"} />
         {Object.entries(body.grupos).map(([name, status]) => (
           <div key={name} className="flex justify-between text-xs">
-            <span className="text-gray-400">{name}</span>
+            <span className="text-muted-foreground">{name}</span>
             <span
               className={`font-mono ${status === "OK" ? "text-green-400" : "text-red-400"}`}
             >
@@ -84,7 +84,7 @@ export default function MetricsDisplay({ body }: { body: ParsedBody }) {
 
   // raw
   return (
-    <pre className="text-xs text-gray-300 font-mono whitespace-pre-wrap break-all bg-gray-800/50 rounded p-2 max-h-32 overflow-auto">
+    <pre className="text-xs text-card-foreground font-mono whitespace-pre-wrap break-all bg-muted/50 rounded p-2 max-h-32 overflow-auto">
       {body.text}
     </pre>
   );

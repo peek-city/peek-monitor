@@ -32,8 +32,8 @@ function formatDuration(seconds: number | null): string {
 
 export default function FlipTimeline({ flips }: { flips: EnrichedFlip[] }) {
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
-      <div className="divide-y divide-gray-800/50">
+    <div className="bg-card border border-border rounded-lg overflow-hidden">
+      <div className="divide-y divide-border/50">
         {flips.map((flip, index) => {
           const isUp = flip.up === 1;
 
@@ -55,13 +55,13 @@ export default function FlipTimeline({ flips }: { flips: EnrichedFlip[] }) {
 
               {/* Info */}
               <div className="flex-1 min-w-0">
-                <div className="text-sm text-white">
+                <div className="text-sm text-foreground">
                   {isUp ? "Recuperado" : "Caído"}
-                  <span className="text-gray-500 ml-2">
+                  <span className="text-muted-foreground ml-2">
                     {isUp ? "(down → up)" : "(up → down)"}
                   </span>
                 </div>
-                <div className="text-xs text-gray-400">
+                <div className="text-xs text-muted-foreground">
                   {formatDate(flip.timestamp)}
                 </div>
               </div>
@@ -69,8 +69,8 @@ export default function FlipTimeline({ flips }: { flips: EnrichedFlip[] }) {
               {/* Duration */}
               {flip.durationSeconds !== null && (
                 <div className="text-right flex-shrink-0">
-                  <div className="text-xs text-gray-500">Duración</div>
-                  <div className="text-sm text-gray-300 font-mono">
+                  <div className="text-xs text-muted-foreground">Duración</div>
+                  <div className="text-sm text-card-foreground font-mono">
                     {formatDuration(flip.durationSeconds)}
                   </div>
                 </div>

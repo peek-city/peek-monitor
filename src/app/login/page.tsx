@@ -8,34 +8,34 @@ function LoginContent() {
   const error = searchParams.get("error");
 
   return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
-      <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 max-w-sm w-full text-center">
-        <h1 className="text-3xl font-bold text-white mb-2">Peek Monitor</h1>
-        <p className="text-gray-400 mb-8 text-sm">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <div className="bg-card border border-border rounded-lg p-8 max-w-sm w-full text-center">
+        <img src="/LogoPeekCompleto.png" alt="Peek" className="h-10 mx-auto mb-2" />
+        <p className="text-muted-foreground mb-8 text-sm">
           Dashboard interno de monitoreo
         </p>
 
         {error === "not_member" && (
-          <div className="bg-red-900/30 border border-red-800 rounded-lg p-3 mb-6 text-sm text-red-300">
+          <div className="bg-destructive/20 border border-destructive/50 rounded-lg p-3 mb-6 text-sm text-destructive">
             Acceso restringido a miembros del servidor de Discord de Peek.
           </div>
         )}
 
         {error === "auth_failed" && (
-          <div className="bg-red-900/30 border border-red-800 rounded-lg p-3 mb-6 text-sm text-red-300">
+          <div className="bg-destructive/20 border border-destructive/50 rounded-lg p-3 mb-6 text-sm text-destructive">
             Error de autenticación. Intentá de nuevo.
           </div>
         )}
 
         {error === "invalid_state" && (
-          <div className="bg-red-900/30 border border-red-800 rounded-lg p-3 mb-6 text-sm text-red-300">
+          <div className="bg-destructive/20 border border-destructive/50 rounded-lg p-3 mb-6 text-sm text-destructive">
             Sesión de autenticación inválida. Intentá de nuevo.
           </div>
         )}
 
         <a
           href="/api/auth/login"
-          className="inline-flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 px-4 rounded-lg transition-colors"
+          className="inline-flex items-center justify-center gap-2 w-full bg-[#00C896] hover:bg-[#00b083] text-white font-medium py-3 px-4 rounded-lg transition-colors"
         >
           <svg
             className="w-5 h-5"
@@ -55,8 +55,8 @@ export default function LoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-          <div className="text-gray-400">Cargando...</div>
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <div className="text-muted-foreground">Cargando...</div>
         </div>
       }
     >

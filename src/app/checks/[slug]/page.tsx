@@ -118,12 +118,12 @@ export default function CheckDetailPage() {
   }, [slug, page]);
 
   return (
-    <div className="min-h-screen bg-gray-950">
-      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-10">
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
           <button
             onClick={() => router.push("/")}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-muted-foreground hover:text-foreground transition-colors"
           >
             ← Volver
           </button>
@@ -132,10 +132,10 @@ export default function CheckDetailPage() {
               <span
                 className={`w-3 h-3 rounded-full ${STATUS_COLORS[checkInfo.status] ?? "bg-gray-400"}`}
               />
-              <h1 className="text-xl font-bold text-white">
+              <h1 className="text-xl font-bold text-foreground">
                 {checkInfo.name}
               </h1>
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-muted-foreground">
                 {STATUS_LABELS[checkInfo.status] ?? checkInfo.status}
               </span>
             </div>
@@ -146,11 +146,11 @@ export default function CheckDetailPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
         {/* Ping History */}
         <section>
-          <h2 className="text-lg font-semibold text-white mb-4">
+          <h2 className="text-lg font-semibold text-foreground mb-4">
             Historial de Pings
           </h2>
           {loading && !pingsData ? (
-            <div className="text-gray-400 py-8 text-center">
+            <div className="text-muted-foreground py-8 text-center">
               Cargando pings...
             </div>
           ) : pingsData ? (
@@ -165,11 +165,11 @@ export default function CheckDetailPage() {
 
         {/* Flip Timeline */}
         <section>
-          <h2 className="text-lg font-semibold text-white mb-4">
+          <h2 className="text-lg font-semibold text-foreground mb-4">
             Historial de Cambios de Estado
           </h2>
           {flips.length === 0 ? (
-            <div className="text-gray-400 py-4 text-center text-sm">
+            <div className="text-muted-foreground py-4 text-center text-sm">
               Sin cambios de estado registrados.
             </div>
           ) : (

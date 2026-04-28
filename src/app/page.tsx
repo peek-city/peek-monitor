@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import CheckCard from "@/components/CheckCard";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface Check {
   name: string;
@@ -37,13 +38,13 @@ export default function DashboardPage() {
   }, [fetchChecks]);
 
   return (
-    <div className="min-h-screen bg-gray-950">
-      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-10">
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-white">Peek Monitor</h1>
+            <img src="/peek-logo.png" alt="Peek Monitor" className="h-8" />
             {lastUpdated && (
-              <p className="text-xs text-gray-400 mt-0.5">
+              <p className="text-xs text-muted-foreground mt-0.5">
                 Actualizado: {lastUpdated.toLocaleTimeString("es-AR")}
               </p>
             )}
@@ -52,13 +53,14 @@ export default function DashboardPage() {
             <button
               onClick={fetchChecks}
               disabled={loading}
-              className="bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm px-3 py-1.5 rounded-lg transition-colors disabled:opacity-50"
+              className="bg-secondary hover:bg-secondary/80 text-secondary-foreground text-sm px-3 py-1.5 rounded-lg transition-colors disabled:opacity-50"
             >
               {loading ? "Cargando..." : "Refrescar"}
             </button>
+            <ThemeToggle />
             <a
               href="/api/auth/logout"
-              className="text-gray-400 hover:text-white text-sm transition-colors"
+              className="text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
               Cerrar sesión
             </a>
@@ -69,7 +71,7 @@ export default function DashboardPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         {loading && checks.length === 0 ? (
           <div className="flex items-center justify-center py-20">
-            <div className="text-gray-400">Cargando checks...</div>
+            <div className="text-muted-foreground">Cargando checks...</div>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

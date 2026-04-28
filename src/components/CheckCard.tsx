@@ -70,31 +70,31 @@ export default function CheckCard({ check }: { check: Check }) {
   return (
     <div
       onClick={() => router.push(`/checks/${check.slug}`)}
-      className="bg-gray-900 border border-gray-800 rounded-xl p-5 cursor-pointer hover:border-gray-600 transition-colors"
+      className="bg-card border border-border rounded-lg p-5 cursor-pointer hover:border-accent transition-colors"
     >
       <div className="flex items-center gap-3 mb-4">
         <span
           className={`w-3 h-3 rounded-full flex-shrink-0 ${STATUS_COLORS[check.status] ?? "bg-gray-400"}`}
         />
-        <h3 className="text-white font-medium truncate">{check.name}</h3>
+        <h3 className="text-foreground font-medium truncate">{check.name}</h3>
       </div>
 
       <div className="flex items-center justify-between text-sm">
-        <span className="text-gray-400">
+        <span className="text-muted-foreground">
           {STATUS_LABELS[check.status] ?? check.status}
         </span>
       </div>
 
-      <div className="mt-3 space-y-1 text-xs text-gray-500">
+      <div className="mt-3 space-y-1 text-xs text-muted-foreground">
         <div className="flex justify-between">
           <span>Último ping</span>
-          <span className="text-gray-300">
+          <span className="text-card-foreground">
             {formatRelativeDate(check.last_ping)}
           </span>
         </div>
         <div className="flex justify-between">
           <span>Próximo ping</span>
-          <span className="text-gray-300">
+          <span className="text-card-foreground">
             {formatFutureRelative(check.next_ping)}
           </span>
         </div>
