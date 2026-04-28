@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { PeekLogo } from "@/components/PeekLogo";
 
 function LoginContent() {
   const searchParams = useSearchParams();
@@ -10,8 +11,8 @@ function LoginContent() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="bg-card border border-border rounded-lg p-8 max-w-sm w-full text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <img src="/peek-logo.png" alt="Peek" className="h-8" />
+        <div className="flex items-center justify-center gap-2.5 mb-2">
+          <PeekLogo size={32} />
           <span className="text-2xl font-bold text-foreground">Peek Monitor</span>
         </div>
         <p className="text-muted-foreground mb-8 text-sm">
