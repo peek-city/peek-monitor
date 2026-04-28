@@ -45,7 +45,7 @@ const STATUS_COLORS: Record<string, string> = {
 const STATUS_LABELS: Record<string, string> = {
   up: "Activo",
   down: "Caído",
-  grace: "En gracia",
+  grace: "Pendiente",
   new: "Nuevo",
   paused: "Pausado",
 };
